@@ -1,9 +1,13 @@
-uniq_random_number = (0..9).to_a.shuffle.first(4)   #загадывает 4-значное число,
-errors = 0                                    #состоящее из неповторяющихся цифр
+uniq_random_number = ARGV[0].split('').map(&:to_i)
 
-while errors < 5                                    #за ограниченное число ходов
+if uniq_random_number == nil
+  uniq_random_number = (0..9).to_a.shuffle.first(4)
+end
+errors = 0
+
+while errors < 5
   p "puts 4 numbers, u have #{5 - errors} trys"
-  user_input = STDIN.gets.chomp.to_i                            #ввод из консоли
+  user_input = STDIN.gets.chomp.to_i
 
   if uniq_random_number.join.to_i == user_input
     puts "bingo, u win!"
