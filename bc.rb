@@ -25,7 +25,7 @@ while errors < turn_numbers
 # условие на победку при отгадывании числа, else сравнение элементов двух
 # массивов по индексам, при совпаденнии " buls" добавление его в новый массив.
 # Из массива цифр введённого пользователем удаляем массив получившися при совпадении.
-# При пересечении получившегося массива с массивом загаданным компътером получаем 
+# При пересечении получившегося массива с массивом загаданным компътером получаем
 # совпадение для "cow"
   if uniq_random_number.join.to_i == user_input
     puts "bingo, u win!"
@@ -33,8 +33,8 @@ while errors < turn_numbers
   else
     array_temp = []
     user_input = user_input.to_s.split('').map(&:to_i)
-    user_input.size.times do
-      |i| array_temp << user_input[i] if
+    user_input.size.times do |i|
+      array_temp << user_input[i] if
       uniq_random_number[i] == user_input[i]
     end
     user_input -= array_temp
