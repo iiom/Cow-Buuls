@@ -10,9 +10,11 @@ uniq_random_number = ARGV[0].split('').map(&:to_i)
 if uniq_random_number == nil
   uniq_random_number = (0..9).to_a.shuffle.first(4)
 end
-errors = 0
 
-while errors < 5
+errors = 0
+turn_numbers = 5
+
+while errors < turn_numbers
   p "puts 4 numbers, u have #{5 - errors} trys"
   user_input = STDIN.gets.chomp.to_i
 
