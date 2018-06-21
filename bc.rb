@@ -22,8 +22,10 @@ while errors < 5
   else
     array_temp = []
     user_input = user_input.to_s.split('').map(&:to_i)
-    user_input.size.times {|i| array_temp << user_input[i] if
-    uniq_random_number[i] == user_input[i]}
+    user_input.size.times do
+      |i| array_temp << user_input[i] if
+      uniq_random_number[i] == user_input[i]
+    end
     user_input -= array_temp
     puts "#{array_temp.join(',')} buls" if array_temp != []
     puts "#{(uniq_random_number & user_input).join(',')} cow" if
