@@ -52,8 +52,9 @@ class Bulls
   end
 
   def get_cows
+    @array_cows -= @array_bulls
     @user_input -= @array_bulls
-    @array_cows << (@uniq_random_number & @user_input)
+    @array_cows += (@uniq_random_number & @user_input)
   end
 
   def print_status
