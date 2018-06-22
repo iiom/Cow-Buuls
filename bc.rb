@@ -5,7 +5,7 @@ class Bulls
     @uniq_random_number = nil
     @user_input         = nil
     @array_bulls        = []
-    @array_cow          = []
+    @array_cows          = []
     @error              = 0
     @turn_numbers       = 5
   end
@@ -28,7 +28,7 @@ class Bulls
       @user_input = STDIN.gets.chomp.to_i
       win
       get_bulls
-      get_cow
+      get_cows
       print_status
       @error += 1
     end
@@ -51,14 +51,14 @@ class Bulls
     end
   end
 
-  def get_cow
+  def get_cows
     @user_input -= @array_bulls
-    @array_cow << (@uniq_random_number & @user_input)
+    @array_cows << (@uniq_random_number & @user_input)
   end
 
   def print_status
     puts "#{@array_bulls.uniq.join(',')} buls" if @array_bulls != []
-    puts "#{@array_cow.uniq.join(',')} cow" if @array_cow != []
+    puts "#{@array_cows.uniq.join(',')} cow" if @array_cows != []
   end
 
 # def errors
