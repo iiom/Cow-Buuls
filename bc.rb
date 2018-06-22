@@ -11,9 +11,7 @@ class Bulls
   end
 
   def get_unirandnumber
-
     @uniq_random_number = ARGV[0]
-
     if @uniq_random_number != nil
         @uniq_random_number = @uniq_random_number.split('').map(&:to_i)
       else
@@ -24,20 +22,19 @@ class Bulls
   def run
     get_unirandnumber
     while @error < @turn_numbers
-      p "puts 4 numbers, u have #{5 - @error} trys"
-      @user_input = STDIN.gets.chomp.to_i
+      get_user_input
       win
       get_bulls
       get_cows
       print_status
       @error += 1
     end
-    puts "u loose"
+    puts "\nu loose\n"
   end
 
   def win
     if @uniq_random_number.join.to_i == @user_input
-      puts "bingo, u win!"
+      puts "\nbingo, u win!\n"
       exit
     end
 
@@ -62,9 +59,16 @@ class Bulls
     puts "#{@array_cows.uniq.join(',')} cow" if @array_cows != []
   end
 
-# def errors
-#   error < turn_numbers?
-# end
+  def get_user_input
+    loop do
+      puts "puts 4 numbers, u had #{@turn_numbers - @error} attempts"
+      @user_input = STDIN.gets.chomp.to_i
+      if @user_input.instance_of?(Integer) && @user_input.to_s.split('').map(&:to_i).size == 4
+        break
+      end
+      puts 'wrong input'
+    end
+  end
 
 end
 
