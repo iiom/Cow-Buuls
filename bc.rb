@@ -3,19 +3,12 @@ class Bulls
 
   def initialize
     @uniq_random_number = nil
-    @user_input = nil
-    @array_bulls = []
-    @array_cow = []
-    @error = 0
-    @turn_numbers = 5
+    @user_input         = nil
+    @array_bulls        = []
+    @array_cow          = []
+    @error              = 0
+    @turn_numbers       = 5
   end
-
-  # puts "Greetins young gamer. I'm glad to to provide to you this wonderful game." +
-  # "Your task - to guess it for limited number of the courses. Cows (the digit is" +
-  # "guessed, but its line item - is not present) and bulls act as hints" +
-  # "(when both the digit and its line item matches). That is if number 1234 is" +
-  # "thought, and you call 6531, then 1 cow (digit 1) and 1 bull (digit 3)" +
-  # "will be result."
 
   def get_unirandnumber
 
@@ -29,6 +22,7 @@ class Bulls
   end
 
   def run
+    get_unirandnumber
     while @error < @turn_numbers
       p "puts 4 numbers, u have #{5 - @error} trys"
       @user_input = STDIN.gets.chomp.to_i
@@ -50,7 +44,6 @@ class Bulls
   end
 
   def get_bulls
-    @array_bulls = []
     @user_input = @user_input.to_s.split('').map(&:to_i)
     @user_input.size.times do |i|
       @array_bulls << @user_input[i] if
@@ -59,7 +52,6 @@ class Bulls
   end
 
   def get_cow
-    @array_cow = []
     @user_input -= @array_bulls
     @array_cow << (@uniq_random_number & @user_input)
   end
@@ -76,5 +68,4 @@ class Bulls
 end
 
 b = Bulls.new
-b.get_unirandnumber
 b.run
