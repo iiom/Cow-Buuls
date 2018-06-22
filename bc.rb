@@ -5,7 +5,7 @@ class Bulls
     @uniq_random_number = nil
     @user_input         = nil
     @array_bulls        = []
-    @array_cows          = []
+    @array_cows         = []
     @error              = 0
     @turn_numbers       = 5
   end
