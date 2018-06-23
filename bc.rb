@@ -72,7 +72,7 @@ class Bulls
     loop do
       puts "puts 4 numbers, u had #{@turn_numbers - @error} attempts"
       @user_input = STDIN.gets.chomp.to_i
-      if @user_input.instance_of?(Integer) &&
+      if @user_input.instance_of?(Integer) && # @user_input.between?(1,4)
           @user_input.to_s.split('').map(&:to_i).size == 4
         break
       end
